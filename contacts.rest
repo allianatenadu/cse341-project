@@ -1,0 +1,123 @@
+# Contacts API Tests
+# Make sure your server is running on http://localhost:4000
+
+### 1. GET All Contacts (Start here to see existing contacts)
+GET http://localhost:4000/contacts
+Content-Type: application/json
+
+###
+
+### 2. POST Create New Contact - John Doe
+POST http://localhost:4000/contacts
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "favoriteColor": "blue",
+  "birthday": "1990-01-01"
+}
+
+###
+
+### 3. POST Create New Contact - Jane Smith
+POST http://localhost:4000/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "jane.smith@example.com",
+  "favoriteColor": "green",
+  "birthday": "1985-05-15"
+}
+
+###
+
+### 4. POST Create New Contact - Bob Johnson
+POST http://localhost:4000/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Bob",
+  "lastName": "Johnson",
+  "email": "bob.johnson@example.com",
+  "favoriteColor": "red",
+  "birthday": "1992-12-25"
+}
+
+###
+
+### 5. GET All Contacts (Check if contacts were created)
+GET http://localhost:4000/contacts
+Content-Type: application/json
+
+###
+
+### 6. GET Contact by ID (Replace 1 with actual ID from previous responses)
+GET http://localhost:4000/contacts/1
+Content-Type: application/json
+
+###
+
+### 7. PUT Update Contact (Replace 1 with actual ID)
+PUT http://localhost:4000/contacts/1
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe-Updated",
+  "email": "john.doe.updated@example.com",
+  "favoriteColor": "purple",
+  "birthday": "1990-01-01"
+}
+
+###
+
+### 8. GET Updated Contact (Replace 1 with actual ID)
+GET http://localhost:4000/contacts/1
+Content-Type: application/json
+
+###
+
+### 9. DELETE Contact (Replace 1 with actual ID)
+DELETE http://localhost:4000/contacts/1
+Content-Type: application/json
+
+###
+
+### 10. GET All Contacts (Verify deletion)
+GET http://localhost:4000/contacts
+Content-Type: application/json
+
+###
+
+### 11. GET Deleted Contact (Should return 404)
+GET http://localhost:4000/contacts/1
+Content-Type: application/json
+
+###
+
+### 12. Test Error Cases - Invalid ID
+GET http://localhost:4000/contacts/abc
+Content-Type: application/json
+
+###
+
+### 13. Test Error Cases - Missing Fields
+POST http://localhost:4000/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Test",
+  "lastName": "User"
+}
+
+###
+
+### 14. Test Error Cases - Non-existent ID
+GET http://localhost:4000/contacts/99999
+Content-Type: application/json
+
+###
