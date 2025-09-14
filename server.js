@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 
 app.use("/contacts", contactsRoutes);
 
-// Swagger setup
+// Swagger setup - FIXED for Render deployment
 const options = {
   definition: {
     openapi: "3.0.0",
@@ -30,6 +30,10 @@ const options = {
       description: "API for managing contacts",
     },
     servers: [
+      {
+        url: "https://cse341-project-f1o2.onrender.com",
+        description: "Production server (Render)",
+      },
       {
         url: `http://localhost:${process.env.PORT || 4000}`,
         description: "Development server",
